@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>🛒 Your Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🛒 Your Cart</h1>
+
+    {% for item in cart %}
+
+    <div class="card">
+
+        <h2>
+            {{ food[item.index] }}
+        </h2>
+
+        <p>
+            💵 Price: ₹{{ prices[item.index] }}
+        </p>
+
+        <p>
+            🔢 Quantity: {{ item.quantity }}
+        </p>
+
+        <p>
+            🧾 Subtotal: ₹{{ item.subtotal }}
+        </p>
+
+        <a href="/remove/{{ loop.index0 }}">
+            <button>❌ Remove</button>
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+    <h2>
+        💰 Cart Total: ₹{{ total }}
+    </h2>
+
+    <a href="/menu">
+        <button>🍕 Add More Food</button>
+    </a>
+
+    <a href="/checkout">
+        <button>💳 Checkout</button>
+    </a>
+
+</div>
+
+</body>
+</html>

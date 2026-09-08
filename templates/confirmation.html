@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>✅ Order Confirmed</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="success">
+
+        <h1>🎉 Order Confirmed!</h1>
+
+        <h2>
+            🆔 Order ID: ORD{{ order_id }}
+        </h2>
+
+        <p>
+            👤 Customer: {{ customer }}
+        </p>
+
+        <p>
+            📞 Phone: {{ phone }}
+        </p>
+
+        <p>
+            🏠 Address: {{ address }}
+        </p>
+
+        <p>
+            💳 Payment: {{ payment }}
+        </p>
+
+        <hr>
+
+        <h2>📦 Order Status</h2>
+
+        <p>✅ Order Confirmed</p>
+        <p>👨‍🍳 Preparing</p>
+        <p>📦 Packed</p>
+        <p>🚚 Out for Delivery</p>
+
+        <p>
+            ⏱️ Estimated Delivery:
+            30–40 minutes
+        </p>
+
+        <hr>
+
+        <h2>⭐ Rate Our Service</h2>
+
+        <form method="POST">
+
+            <select name="rating" required>
+
+                <option value="">
+                    Select Rating
+                </option>
+
+                <option value="1">⭐ 1</option>
+                <option value="2">⭐⭐ 2</option>
+                <option value="3">⭐⭐⭐ 3</option>
+                <option value="4">⭐⭐⭐⭐ 4</option>
+                <option value="5">⭐⭐⭐⭐⭐ 5</option>
+
+            </select>
+
+            <button type="submit">
+                Submit Rating ⭐
+            </button>
+
+        </form>
+
+        {% if rating %}
+
+        <h3>
+            ⭐ Thank you for your
+            {{ rating }}/5 rating!
+        </h3>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+</html>
